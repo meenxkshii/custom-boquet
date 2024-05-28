@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Bouquet</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+        }
+        .flowers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .flower {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Your Custom Bouquet</h1>
+    <div>
+        <label for="flowerSelect">Choose a flower:</label>
+        <select id="flowerSelect">
+            <option value="rose.jpg">Rose</option>
+            <option value="tulip.jpg">Tulip</option>
+            <option value="daisy.jpg">Daisy</option>
+        </select>
+        <button onclick="addFlower()">Add Flower</button>
+    </div>
+    <div class="flowers" id="bouquet"></div>
+
+    <script>
+        function addFlower() {
+            const flowerSelect = document.getElementById('flowerSelect');
+            const bouquet = document.getElementById('bouquet');
+            const flower = document.createElement('img');
+            flower.src = flowerSelect.value;
+            flower.alt = flowerSelect.options[flowerSelect.selectedIndex].text;
+            flower.className = 'flower';
+            flower.width = 100;
+            bouquet.appendChild(flower);
+        }
+    </script>
+</body>
+</html>
